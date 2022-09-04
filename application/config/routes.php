@@ -50,5 +50,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'welcome';
+
+$route['api/info/(:any)'] = 'api/info/$1';
+$route['api/info/(:any)/(:any)'] = 'api/info/$1/$2';
+
+$route['api/messages/(:any)'] = 'api/messages/$1';
+$route['api/messages/(:any)/(:any)'] = 'api/messages/$1/$2';
+
+$route[getenv('ADMIN_FOLDER')] = 'admin/dashboard';
+$route[getenv('ADMIN_FOLDER').'/(:any)'] = 'admin/$1/index';
+$route[getenv('ADMIN_FOLDER').'/(:any)/(:any)'] = 'admin/$1/$2';
+$route[getenv('ADMIN_FOLDER').'/(:any)/(:any)/(:any)'] = 'admin/$1/$2/$3';
+
+
+// $route['(:any)'] = '$1/index';
+// $route['(:any)/(:any)'] = '$1/$2';
+// $route['(:any)/(:any)/(:any)'] = '$1/$2/$3';
+//$route['(:any)/(:any)/(:any)/(:any)'] = '$1/$2/$3/$4';
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
